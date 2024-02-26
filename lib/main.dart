@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'homePage.dart';
 
 void main() {
@@ -19,11 +18,8 @@ class MyApp extends StatelessWidget {
             thumbColor: Colors.amber,
             overlayColor: Colors.amber[50],
             inactiveTickMarkColor: Colors.amber[700]),
-        brightness: Brightness.light, // status bar brightness
-        backgroundColor: Colors.white,
-        primaryColor: Colors.amber[600],
-        accentColor: Colors.black,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity, 
+        colorScheme: ColorScheme.fromSwatch().copyWith(primary: Colors.amber[600], secondary: Colors.black, background: Colors.white, brightness: Brightness.light ),
       ),
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
@@ -33,10 +29,7 @@ class MyApp extends StatelessWidget {
             thumbColor: Colors.purpleAccent,
             overlayColor: Colors.purpleAccent[50],
             inactiveTickMarkColor: Colors.purpleAccent[700]),
-        brightness: Brightness.dark, // status bar brightness
-        backgroundColor: Colors.black,
-        primaryColor: Colors.purple[300],
-        accentColor: Colors.white,
+        colorScheme: ColorScheme.fromSwatch().copyWith(primary: Colors.purple[300], secondary: Colors.white, background: Colors.black, brightness: Brightness.dark),
       ),
       home: HomePage(),
     );
