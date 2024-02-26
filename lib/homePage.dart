@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hashtag_generator/common/hashtag_generator.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,18 +45,17 @@ class _HomePageState extends State<HomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          brightness: Theme.of(context).brightness, // status bar brightness
           elevation: 0,
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: Theme.of(context).colorScheme.background,
           centerTitle: false,
           title: Text(
             "Hashtag Pocket",
             textAlign: TextAlign.start,
             style: GoogleFonts.cairo(
               fontSize: 30,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),
@@ -109,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.only(bottomLeft: Radius.circular(6)),
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                         height: 80,
                         child: Center(
@@ -117,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                             'Generate',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.mavenPro(
-                                color: Theme.of(context).backgroundColor,
+                                color: Theme.of(context).colorScheme.background,
                                 fontSize: 20),
                           ),
                         ),
@@ -134,8 +132,9 @@ class _HomePageState extends State<HomePage> {
                                 text: hashArr
                                     .toString()
                                     .replaceAll(RegExp("\\[|\\]"), ''))),
-                            Scaffold.of(context).showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text('Hashtags Copied'))),
+                                    
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -144,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                   end: Alignment.bottomRight,
                                   colors: [
                                     Theme.of(context).primaryColor,
-                                    Colors.deepOrange[300]
+                                    Color.fromARGB(255, 249, 133, 98)
                                   ]),
                               borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(6)),
